@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">View Lunch Menu</h1>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr th:each="adminAddLunch : ${adminaddlunch}">
+              <td th:text="${adminAddLunch.id}"></td>
+              <td th:text="${adminAddLunch.name}"></td>
+              <td th:text="${adminAddLunch.category}"></td>
+              <td th:text="${adminAddLunch.description}"></td>
+              <td th:text="@{${adminAddLunch.price} + ' LKR'}"></td>
+
+              <td>
+                <img th:src="@{'/images/' + ${adminAddLunch.imageFileName}}" 
+                alt="adminAddLunch Image" width="100">
+              </td>
+            
+
+              <td style="white-space:nowrap;">
+                <a href="">Order Now</a>
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+
+    </div>
+</body>
+</html>
